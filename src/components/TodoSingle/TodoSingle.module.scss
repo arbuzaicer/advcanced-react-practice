@@ -1,0 +1,90 @@
+@use "src/scss/colors";
+
+.single {
+  height: 72px;
+  display: flex;
+  padding: 0 10px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  align-items: center;
+
+  background-color: colors.$component-bg-secondary;
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+
+    &:checked ~ .content {
+      .title {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: colors.$primary-text;
+    }
+
+    .date {
+      margin-top: 6px;
+      font-size: 14px;
+      color: colors.$secondary-text;
+      text-transform: capitalize;
+    }
+
+    .edit-input {
+      position: relative;
+
+      svg {
+        right: -30px;
+        cursor: pointer;
+        position: absolute;
+
+        path {
+          fill: colors.$primary-text;
+        }
+      }
+    }
+  }
+
+  .actions {
+    margin-left: auto;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-right: 30px;
+
+      path {
+        fill: colors.$primary-text;
+        stroke: colors.$primary-text;
+      }
+    }
+
+    i {
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.3s;
+      color: colors.$secondary-text;
+
+      &:hover {
+        background-color: lighten(colors.$component-bg-secondary, 10%);
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+}
